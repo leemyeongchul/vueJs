@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2Â÷</title>
+
+<style>
+	.active {
+		color : red;
+	}
+</style>
+  
+  </head>
+
+
+
+  <body>
+    <div id="app">
+		<div v-text="message"></div> <!--{{}} ÀÌ°Å¶û °°Àº°ÅÀÓ.-->
+		<div v-html="message2"></div> <!--tag°¡ ¸ÔÈû-->
+		<a v-bind:href="message3" target="_blink"> ³×ÀÌ¹ö·Î °¨~~~~~</a> <!--a tag´Â ÀÌ·¸°Ô-->
+		<div :class="{ active:isActive }">{{ message4 }}</div> <!--tag°¡ ¸ÔÈû-->
+		
+    </div> 
+
+<button v-on:click="toggle">toggle</button>
+    <script src="./vue.js"></script>
+    <script>
+
+	
+		new Vue({
+			data: {
+				message: '<strong>zzzzzzzzzzzzzzzzzzzzzzz</strong>',
+				message2: '<strong>zzzzzzzzzzzzzzzzzzzzzzz</strong>',
+				message3: 'http://www.naver.com',
+				message4: 'http://www.naver.com',
+				isActive: false
+			},
+			method: {
+				toggle: function () {
+					
+				}
+			}
+		}).$mount('#app');
+		
+
+		
+		
+
+    </script>
+  </body>
+</html>

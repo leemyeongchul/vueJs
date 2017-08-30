@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2차 - 라이프사이클</title>
+  </head>
+
+  <body>
+      <script src="../vue.js"></script>
+
+
+	<div id="app">
+	{{ message }}
+    </div> 
+
+
+	<button onclick="showData()">alert</button>
+<button onclick="remove()">remove</button>
+    <script>
+
+		var vm = new Vue({
+			data: {
+				message: 'zzzzzzzzzzzz'
+			},
+			beforeCreate: function () {
+				alert('beforeCreate:'+ this.message );
+			},
+			created: function () {
+				alert('created:'+ this.message );
+			},
+			beforeMount: function () {
+				alert('beforeMount:'+ this.message );
+			},
+			mounted: function () {
+				alert('mounted:'+ this.message );
+			},
+			beforeDestroy: function () {
+				alert('beforeDstory:'+ this.message );
+			},	
+			destroyed: function () {
+				alert('dstoryed:'+ this.message );
+			}				
+
+		}).$mount('#app');
+		
+		function showData(){
+			alert(vm.message);
+		}
+
+		function remove(){
+			vm.$destroy();	
+			alert(vm.message);
+		}		
+
+    </script>
+  </body>
+</html>

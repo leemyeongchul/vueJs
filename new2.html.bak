@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2차</title>
+  </head>
+
+  <body>
+    <div id="text"> </div>
+	<div id="text2"> </div>
+	<div id="text3"> {{ text }}</div>
+
+<button id="revert">뒤집기</button><br>
+<button v-on:click="revert"> vue뒤집기</button>
+
+
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script src="./vue.js"></script>
+    <script>
+		window.onload = function () {
+			var text = document.getElementById('text');
+			text.textContent = 'zzzzzzzzzzzzzzzzzzzzz';
+
+			var button = document.getElementById('revert');
+			button.onclick = function () {
+				var con = text.textContent;
+				//text.textContent = content.split('')
+				text.textContent = "33333333333333";
+			}
+		}
+
+		$(document).ready(function () {
+			$("#text2").text('jquery임');
+		});
+
+		new Vue({
+			el: '#text3',
+			data: {
+				text: 'vue임~~'
+			},
+			methods: {
+			  revert: function () {
+				this.text.split('').reverse().join('');
+			  }
+			}
+		});
+
+    </script> 
+  </body>
+</html>

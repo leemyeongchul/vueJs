@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2차</title>
+
+<style>
+	#box {
+		width: 200px;
+		height: 200px;
+		background-color: red;
+	}
+</style>
+  
+  </head>
+
+
+
+  <body>
+    <div id="app">
+		{{ counter }}
+	
+    </div> 
+	    <div id="app2">
+			<!--<div id="box" v-on:mousemove="getPosition('클릭',$event)"></div>-->
+			<div id="box" @click="getPosition('클릭',$event)"></div>
+			x: {{ x }}<br>
+			y: {{ y }}
+    </div> 
+
+<button v-on:click="counter += 1">증가</button>
+
+    <script src="./vue.js"></script>
+    <script>
+
+	
+		new Vue({
+			data: {
+				counter: 0
+			},
+
+		}).$mount('#app');
+		
+
+		new Vue({
+			data: {
+				x: 0,
+				y: 0
+			},
+			methods: {
+				getPosition: function (message,event) {
+					alert(message);
+					this.x = event.clientX;
+					this.y = event.clientY;
+				}
+			}
+		}).$mount('#app2');	
+		
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2차</title>
+
+<style>
+	#box1 {
+		width: 100px;
+		height: 100px;
+		background-color: red;
+	}
+	#box2 {
+		width: 50px;
+		height: 50px;
+		background-color: blue;
+	}
+</style>
+  
+  </head>
+
+
+
+  <body>
+	<div id="app">
+			<div id="box1" @click="alertMessage('11111')" @mousedown.right="alertMessage('right')">
+				<div id="box2" @click.stop="alertMessage('222')"></div> <!--stop 중복 이벤트 처리를 정지한다.-->
+			</div>
+			
+
+			<input @keyup.shift.enter="save"><!--키 제어 방식-->
+    </div> 
+
+<button v-on:click="counter += 1">증가</button>
+
+    <script src="./vue.js"></script>
+    <script>
+
+	
+		new Vue({
+			data: {
+				counter: 0
+			},
+			methods: {
+				alertMessage: function (message) {
+					alert(message);
+			
+				},
+				save: function () {
+					confirm('zzz');
+			
+				}
+			}
+
+		}).$mount('#app');
+		
+
+		
+
+    </script>
+  </body>
+</html>

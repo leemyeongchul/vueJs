@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Hello, Vue! - 2차</title>
+  </head>
+
+  <body>
+    <div id="app">
+		{{ message }}
+    </div>
+	    <div id="app2">
+		{{ message }}
+    </div>
+
+    <script src="./vue.js"></script>
+    <script>
+
+		// instance를 생성하는 부분
+		/*
+		new Vue({
+			el: '#app'
+		});
+		*/
+
+		
+		new Vue({
+			data: {
+				message: "333333"
+			}
+		}).$mount('#app2');
+		
+
+		new Vue({
+			el: '#app',
+			data: {
+				message: 'zzzzz'
+			}
+		});
+		
+
+    </script>
+  </body>
+</html>
